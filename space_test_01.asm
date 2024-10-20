@@ -1,5 +1,5 @@
 DATA_SEG    SEGMENT
-    BACKGROUND_COLOR DB 00h  ; cor do funod
+    BACKGROUND_COLOR DB 00h  ; cor do fundo
     
     ; VARIAVEIS DA Nave
     NAVE_X DW 0Ah        ; posicao X (coluna) da Nave
@@ -27,20 +27,19 @@ DATA_SEG    SEGMENT
 
     ; Estruturas para objetos INIMIGOS
     OBJETOS_ARRAY LABEL BYTE
-    OBJ1_X DW 0c8h  ; Posição X do primeiro objeto
-    OBJ1_Y DW 14h   ; Posição Y do primeiro objeto
-    OBJ1_STATUS DB 1 ; Cor do primeiro objeto
+        OBJ1_X DW 0c8h  ; Posição X do primeiro objeto
+        OBJ1_Y DW 14h   ; Posição Y do primeiro objeto
+        OBJ1_STATUS DB 1 ; status do primeiro objeto
 
-    OBJ2_X DW 240    ; Posição X do segundo objeto
-    OBJ2_Y DW 98    ; Posição Y do segundo objeto
-    OBJ2_STATUS DB 1 ; Cor do segundo objeto
+        OBJ2_X DW 240    ; Posição X do segundo objeto
+        OBJ2_Y DW 98    ; Posição Y do segundo objeto
+        OBJ2_STATUS DB 1 ; status do segundo objeto
 
-    OBJ3_X DW 170   ; Posição X do terceiro objeto
-    OBJ3_Y DW 180   ; Posição Y do terceiro objeto
-    OBJ3_STATUS DB 1 ; Cor do terceiro objeto
-
-    ; Quantidade de objetos no array
-    NUM_OBJETOS DB 3
+        OBJ3_X DW 170   ; Posição X do terceiro objeto
+        OBJ3_Y DW 180   ; Posição Y do terceiro objeto
+        OBJ3_STATUS DB 1 ; status do terceiro objeto
+        ; Quantidade de objetos no array
+        NUM_OBJETOS DB 3
 DATA_SEG    ENDS
 
 CODE_SEG    SEGMENT
@@ -362,9 +361,7 @@ CODE_SEG    SEGMENT
             POP CX
             RET
         DRAW_OBJECT ENDP
-        ;-------------------------------------------------
-        ; CLEAR_SCREEN - Limpa a tela
-        ;-------------------------------------------------
+
         CLEAR_SCREEN PROC NEAR
             MOV AH, 00h             ; Modo gráfico
             MOV AL, 13h             ; 320x200 modo gráfico
